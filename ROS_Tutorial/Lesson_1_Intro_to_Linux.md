@@ -76,13 +76,13 @@ Usage: sudo [command]
 
 **7) move "Hello_World" to "test2"**
 
-**8) change to directory "test2" and change "Hello_World" file to "Hello"**
+**8) change to directory "test2" and rename "Hello_World" file to "Hello"**
 
 **9) Copy the "Hello" file to the previous directory, and remove the "Hello" in the current directory**
 
 **10) Back to the previous directory and remove directory "test2"**
 
-**11) CHALLENGE: go to the previous directory and delete the directory "test" (WITH the file "Hello" in it). Then, echo the following to the screen "Finished!"**
+**11) CHALLENGE: move to the previous directory and delete the directory "test" (WITH the file "Hello" in "test"). Then, echo the following:  "Finished!"**
 
 ## Answer References
 1) first, press Ctrl + Alt + T
@@ -136,7 +136,7 @@ $ rmdir test2
 $ cd ..
 $ rm -r test    # This means to remove recursively 
                 # For situation when folder is not empty
-$ echo Finished!
+$ echo "Finished!"
 ```
 ##### *References*
 1. [Common Linux Commands](https://www.dummies.com/computers/operating-systems/linux/common-linux-commands/)

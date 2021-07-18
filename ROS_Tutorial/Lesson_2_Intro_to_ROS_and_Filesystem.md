@@ -2,7 +2,7 @@
 # Lesson 2 - Intro to ROS & Filesystem
 
 ## Helpful Resources
->**Before starting this lesson, let me list out some resources that you will find helpful!**
+>**Before starting your exploration in ROS, let me list out some resources that you will find really helpful!**
 >>**It is extremely recommended to check out some of this resources if you want more in-depth knowledge!**
 
 - RoboMaster ROS Package
@@ -67,14 +67,19 @@
 1)
 ```bash
 roscd turtlesim
+ucsd@ucsd-virt-ubt18:/opt/ros/melodic/share/turtlesim$
 ```
 2)
 ```bash
 rospack find turtlesim
+/opt/ros/melodic/share/turtlesim
+
 ```
 3)
 ```bash
 rosls turtlesim
+cmake  images  msg  package.xml  srv
+
 ```
 ---
 

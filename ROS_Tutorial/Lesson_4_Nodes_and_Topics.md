@@ -32,20 +32,59 @@ rosnode cleanup                # purge registration information of unreachable n
 > **Let us use the commands above to explore the properties of the "turtlesim_node"!**
 > **First, let's use "rosnode list" to list the active nodes"**
 ```bash
-$ rosnode list // also put the output below
+$ rosnode list
+/rosout
+/turtlesim
 ```
 > **Since we know the current node is "turtlesim", let's find out its information!**
 ```bash
 $ rosnode info /turtlesim
+--------------------------------------------------------------------------------
+Node [/turtlesim]
+Publications: 
+ * /rosout [rosgraph_msgs/Log]
+ * /turtle1/color_sensor [turtlesim/Color]
+ * /turtle1/pose [turtlesim/Pose]
+
+Subscriptions: 
+ * /turtle1/cmd_vel [unknown type]
+
+Services: 
+ * /clear
+ * /kill
+ * /reset
+ * /spawn
+ * /turtle1/set_pen
+ * /turtle1/teleport_absolute
+ * /turtle1/teleport_relative
+ * /turtlesim/get_loggers
+ * /turtlesim/set_logger_level
+
+
+contacting node http://localhost:36897/ ...
+Pid: 9205
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound (37567 - 127.0.0.1:58964) [23]
+    * transport: TCPROS
 ```
 > **Let's ping the node to check our connectivity!**
 >> **To exit the ping, type "Ctrl + C", this will kill the current running task**
 ```bash
 $ rosnode ping /turtlesim
+rosnode: node is [/turtlesim]
+pinging /turtlesim with a timeout of 3.0s
+xmlrpc reply from http://localhost:36897/	time=0.904083ms
+xmlrpc reply from http://localhost:36897/	time=0.708103ms
+xmlrpc reply from http://localhost:36897/	time=0.778913ms
+^Cping average: 0.797033ms
 ```
 > **You can also practice to relaunch the package by killing this node, it will be optional.**
 ```bash
 $ rosnode kill /turtlesim
+killing /turtlesim
+killed
 ```
 >**Don't forget to practice other commands!**
 
@@ -75,7 +114,8 @@ $ sudo apt-get install ros-<melodic>-rqt
 $ sudo apt-get install ros-<melodic>-rqt-common-plugins
 ```
 >**Then, we run the follow commands**
->>**Put the picture of the vis)  You will see the following visualization of the relationship between nodes. In this case, "/teleop_turtle" and "/turtlesim" communicate through the topic "/turtle1/command_velocity**
+>>**You will see the visualization of the relationship between nodes. In this case, "/teleop_turtle" and "/turtlesim" communicate through the topic "/turtle1/command_velocity**
+>>>**If you did not see that, make sure you have both"/turtlesim" and "/teleop_turtle" running using commands at the start of the section. Then, referesh the rqt_graph by clicking on the top-left blue button**
 ```bash
 $ rosrun rqt_graph rqt_graph
 ```
@@ -100,14 +140,24 @@ bw    echo  find  hz    info  list  pub   type
 >>**In order for messages to be publish on this terminal, we will need to move the turtle using arrow keys on the turtle_teleop_key terminal!**
 ```bash
 $ rostopic echo /turtle1/cmd_vel
+linear: 
+  x: 0.0
+  y: 0.0
+  z: 0.0
+angular: 
+  x: 0.0
+  y: 0.0
+  z: -2.0
+---
 ```
 
 
->**Also, take a look at rqt_graph and press the blue refresh button on the upper-left. You will see that rostopic echo (in red) have subscribed to "turtle1/command_velocity"**
+>**Also, take a look at rqt_graph and press the blue refresh button on the upper-left. You will find an other node (beside '/turtlesim') has subscribed to "turtle1/command_velocity".**
+>>**Here, "/teleop_turtle" is a publisher (lesson on "publisher" will be cover later) that has the velocity data and send it to the other two subscribers, which will make use of the data**
 
 
 
->**Likewise, for "rostopic list", we can use the following command to check for its arguments. Same thing apply to the commands in "rosnode" and others**
+>**Next, for "rostopic list", we can use the following command to check for its arguments. Same thing apply to the commands in "rosnode" and others**
 >>**Feel free to try out the arguments!**
 ```bash
 $ rostopic list -h
@@ -125,7 +175,7 @@ $ rostopic list -h
 > **ROS Messages: The data that are send between ROS Nodes through the ROS Topics**
 >>**Publisher -> same type of message (topic type depends on this) -> Subscriber**
 
-> **Now, let us try out the follow command to determine the topic type!**
+> **Now, let us try out the follow command to determine the topic type of the topic "command_velocity"!**
 ```bash
 $ rostopic type /turtle1/cmd_vel    # rostopic type  [topic-name]
     geometry_msgs/Twist
@@ -150,7 +200,7 @@ $ rostopic pub -1 /turtle1/cmd_vel geometry_msgs/Twist -- '[2.0,0.0,0.0]' '[0.0,
 # rostopic pub   [topic-name][message-type][args]
 ```
 
->**If your turtle stopped, it is normal! We need a to continue publish the commands to get a continuous movement, and the "-r" argument will do it for us at a rate of 1 Hz!**
+>**If your turtle stopped, it is normal! We need a to continue publish the commands to get a continuous movement, and the "-r" argument will do it for us at a rate of 1 Hz! Want faster publishing rate? Increase the number that follows the "-r" argument**
 >>**Remember to check out the rqt_graph and see what new nodes are added!**
 ```bash
 $ rostopic pub /turtle1/cmd_vel geometry_msgs/Twist -r 1 -- '[2.0, 0.0, 0.0]' '[0.0, 0.0, -1.8]'
@@ -163,9 +213,14 @@ $ rostopic echo /turtle1/pose
 >**We can also see the rate of publishing!**
 ```bash
 $ rostopic hz /turtle1/pose
+
+# or (try both of this out, separately!)
+
+$ rostopic hz /turtle1/cmd_vel 
 ```
+
 #### Optional
->**We can also plot the data above to a graph, which we will only introduce you with the follow command and not discuss further**
+>**We can also plot the data above to a graph, which I will only introduce you with the follow command and not discuss further**
 ```bash
 $ rosrun rqt_plot rqt_plot
 ```
