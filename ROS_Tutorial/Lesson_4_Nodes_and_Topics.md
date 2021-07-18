@@ -11,7 +11,7 @@ $ roscore
 ```bash
 $ rosrun turtlesim turtlesim_node
 ```
-> add image of turtlesim here
+
 
 >**Let's also enable keyboard control!**
 ```bash
@@ -47,7 +47,7 @@ $ rosnode ping /turtlesim
 ```bash
 $ rosnode kill /turtlesim
 ```
->Talk about the help function and mention to practice other !
+>**Don't forget to practice other commands!**
 
 
 
@@ -79,7 +79,7 @@ $ sudo apt-get install ros-<melodic>-rqt-common-plugins
 ```bash
 $ rosrun rqt_graph rqt_graph
 ```
->add picture
+
 
 >**Next, the following will help you with the format of the rostopic command. Same thing apply to the "rosnode", too. Try it out !**
 ```bash
@@ -101,11 +101,11 @@ bw    echo  find  hz    info  list  pub   type
 ```bash
 $ rostopic echo /turtle1/cmd_vel
 ```
->**Put the output here**
+
 
 >**Also, take a look at rqt_graph and press the blue refresh button on the upper-left. You will see that rostopic echo (in red) have subscribed to "turtle1/command_velocity"**
 
->**Picture here**
+
 
 >**Likewise, for "rostopic list", we can use the following command to check for its arguments. Same thing apply to the commands in "rosnode" and others**
 >>**Feel free to try out the arguments!**

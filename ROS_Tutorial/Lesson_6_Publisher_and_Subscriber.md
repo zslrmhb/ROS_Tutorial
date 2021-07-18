@@ -3,6 +3,7 @@
 >>**The command will direct you to the source folder of the package, and this is the place for the source files of publisher and subscriber and possibly others!**
 ```bash
 cd ~/[workspace-name]/src/[package-name]/src
+# package-name is "beginner_tutorials"
 ```
 ## ROS Publisher
 >**ROS Publisher: A node that publish message to the subscriber through a rostopic**
@@ -73,6 +74,22 @@ int main(int argc, char **argv)
 ```
 >**For detailed explanation of the code, please visit [Writing a Simple Publisher and Subscriber (C++)](http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29), this is the basic format of a publisher**
 
+>**To compile the above code and run it, write the following in the CMakeLists of the package!**
+>>**This will generate a executable from the above source code and automatically link the necessary libraries for you!**
+```bash
+add_executable(velocity_publisher src/velocity_publisher.cpp)
+target_link_libraries(velocity_publisher ${catkin_LIBRARIES})
+```
+>**To run the program, run the following command in terminal!**
+>>**Assuming your current working directory in the terminal is the package location**
+```bash
+$ cd ~/[workspace-name]
+$ catkin_make
+$ source devel/setup.bash
+$ roscore
+$ rosrun turtlesim turtlesim_node
+$ rosrun beginner_tutorials velocity_publisher
+```
 
 
 **Python Version, name it "velocity_publisher.py"**
@@ -137,6 +154,17 @@ if __name__ == '__main__':
 ```
 >**For detailed explanation of the code, please visit [Writing a Simple Publisher and Subscriber (Python)](http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28python%29)**
 
+>**To run the program, run the following command in terminal!**
+>>**Assuming your current working directory in the terminal is the package location**
+```bash
+$ cd ~/[workspace-name]
+$ catkin_make
+$ source devel/setup.bash
+$ roscore
+$ rosrun turtlesim turtlesim_node
+$ rosrun beginner_tutorials velocity_publisher
+```
+
 ## ROS Subscriber
 >**ROS Subscriber: A node that receive/subscribe message from the publisher through a rostopic**
 **The following code and explanation is taken and modified from the this tutorial: [ros_21_tutorials](https://github.com/huchunxu/ros_21_tutorials/tree/master/docs/slides)**
@@ -193,6 +221,24 @@ int main(int argc, char **argv)
 ```
 >**For detailed explaination of the code, please visit [Writing a Simple Publisher and Subscriber (C++)](http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28c%2B%2B%29), this is the basic format of a subscriber**
 
+>**To compile the above code and run it, write the following in the CMakeLists of the package!**
+>>**This will generate a executable from the above source code and automatically link the necessary libraries for you!**
+```bash
+add_executable(pose_subscriber src/pose_subscriber.cpp)
+target_link_libraries(pose_subscriber ${catkin_LIBRARIES})
+```
+>**To run the program, run the following command in terminal!**
+>>**Assuming your current working directory in the terminal is the package location**
+```bash
+$ cd ~/[workspace-name]
+$ catkin_make
+$ source devel/setup.bash
+$ roscore
+$ rosrun turtlesim turtlesim_node
+$ rosrun beginner_tutorials pose_subscriber
+```
+
+
 **Python Version, name it "pose_subscriber.py"**
 ```python
 #!/usr/bin/env python
@@ -237,6 +283,16 @@ if __name__ == '__main__':
 ```
 >**For detailed explanation of the code, please visit [Writing a Simple Publisher and Subscriber (Python)](http://wiki.ros.org/ROS/Tutorials/WritingPublisherSubscriber%28python%29)**
 
+>**To run the program, run the following command in terminal!**
+>>**Assuming your current working directory in the terminal is the package location**
+```bash
+$ cd ~/[workspace-name]
+$ catkin_make
+$ source devel/setup.bash
+$ roscore
+$ rosrun turtlesim turtlesim_node
+$ rosrun beginner_tutorials pose_subscriber
+```
 
 
 ##### *References*

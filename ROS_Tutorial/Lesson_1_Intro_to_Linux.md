@@ -44,6 +44,7 @@ Usage: rmdir [directory name]
 
 **`rm`**
 >**remove directories or contents**
+>**WARNING: AVOID USING rm -f as much as possible, SEARCH it up if you are curious**
 
 **`cp`**
 >**copy files and directories**
@@ -59,10 +60,10 @@ Usage: echo [string arguments]
 >**enables administrative permissions**
 Usage: sudo [command]
 ---
-## *Additional Linux Commands*
 
 ## Practices
-
+1) Open the terminal and create a folder called Helloworld
+2)
 
 ##### *References*
 1. [Common Linux Commands](https://www.dummies.com/computers/operating-systems/linux/common-linux-commands/)

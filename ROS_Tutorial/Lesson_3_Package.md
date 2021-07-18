@@ -1,6 +1,9 @@
 # Lesson 3 - Package
 
 ## Catkin vs. Rosbuild
+>**Rosbuild was an outdated buildsystem, just use Catkin!**
+>>**See this post if you are curious. [catkin vs rosbuild system?](https://answers.ros.org/question/125901/catkin-vs-rosbuild-system/)** 
+
 
 ## Catkin Package Requirements
 - **package.xml (meta information about the package)**

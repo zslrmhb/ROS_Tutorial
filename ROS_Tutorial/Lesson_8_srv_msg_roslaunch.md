@@ -2,6 +2,7 @@
 ## The codes in this tutorial are optional for you to try, since they are similar to the last lessons. But still worth to read it!
 **The following code and explanation is taken and modified from the this tutorial: [ros_21_tutorials](https://github.com/huchunxu/ros_21_tutorials/tree/master/docs/slides)**
 ## msg
+> **Message file will contain the data exchanged between the nodes**
 
 ```msg
 string name
@@ -12,7 +13,31 @@ uint8 unknown = 0
 uint8 male    = 1
 uint8 female  = 2
 ```
+> **Find the following in the package.xml file (assuming you have created new package in your workspace or you are using a pre-created package) and uncomment it, if not, add this lines**
+>>**These are the package dependency when your custom message files are involved**
+```bash
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+```
 
+> **Now, go to the CMakeList.txt in your current package and add the following if they does not exist**
+- find_package(... message_generation)
+- add_message_files(FILES Person.msg)
+- generate_messages(DEPENDENCIES std_msgs)
+- catkin_package(... message_runtime)
+
+> **To make the header and other files that you need to use in the code that involves this message file, use the following command!**
+```bash
+$ roscd [package-name]
+$ cd ../..
+$ catkin_make
+$ cd -
+```
+> **Now, the files distribution for 'Person.msg' should be as follows**
+>> **C++ header file : ~/catkin_ws/devel/include/[package-name]/**
+>> **Python script: ~/catkin_ws/devel/lib/python2.7/dist-packages/[package-name]/msg**
+
+>**person_publisher.cpp**
 ```cpp
 /***********************************************************************
 Copyright 2020 GuYueHome (www.guyuehome.com).
@@ -24,7 +49,7 @@ Copyright 2020 GuYueHome (www.guyuehome.com).
  
 /**
  * This example will publish this topic: /person_info，
- * topic type: learning_topic::Person
+ * topic type: learning_topic::Person  
  */
  
 #include <ros/ros.h>
@@ -77,6 +102,7 @@ int main(int argc, char **argv)
     return 0;
 }
 ```
+>**person_subscriber.cpp**
 ```cpp
 /***********************************************************************
 Copyright 2020 GuYueHome (www.guyuehome.com).
@@ -127,6 +153,18 @@ int main(int argc, char **argv)
     return 0;
 }
 ```
+>**To compile the above code and run it, write the following in the CMakeLists of the package!**
+>>**This will generate a executable from the above source code and automatically link the necessary libraries for you!**
+```bash
+add_executable(person_publisher src/person_publisher.cpp)
+target_link_libraries(person_publisher ${catkin_LIBRARIES})
+add_dependencies(person_publisher ${PROJECT_NAME}_generate_messages_cpp)
+
+add_executable(person_subscriber src/person_subscriber.cpp)
+target_link_libraries(person_subscriber ${catkin_LIBRARIES})
+add_dependencies(person_subscriber ${PROJECT_NAME}_generate_messages_cpp)
+```
+>**person_publisher.py**
 ```Python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
@@ -185,6 +223,7 @@ if __name__ == '__main__':
     except rospy.ROSInterruptException:
         pass
 ```
+>**person_subscriber.py**
 ```Python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
@@ -226,9 +265,15 @@ def person_subscriber():
 if __name__ == '__main__':
     person_subscriber()
 ```
+>**So far in the lesson, you should know how to compile (C++) and execute the above code, so I will not reiterate the steps**
 
 ## srv
-
+>**Service file contains the type of request and response data between the client and the server**
+```
+# request
+---
+# response
+```
 ```srv
 string name
 uint8  age
@@ -238,9 +283,10 @@ uint8 unknown = 0
 uint8 male    = 1
 uint8 female  = 2
 
----
+--- 
 string result
 ```
+>**person_server.cpp**
 ```cpp
 /***********************************************************************
 Copyright 2020 GuYueHome (www.guyuehome.com).
@@ -293,6 +339,7 @@ int main(int argc, char** argv)
 	return 0;
 }
 ```
+>**person_client.cpp**
 ```cpp
 /***********************************************************************
 Copyright 2020 GuYueHome (www.guyuehome.com).
@@ -351,6 +398,7 @@ int main(int argc, char **argv)
     return 0;
 }
 ```
+>**person_server.py**
 ```Python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
@@ -396,6 +444,7 @@ if __name__ == "__main__":
     # Show request result
     print "Show person result : %s" %(person_client())
 ```
+>**person_client.py**
 ```Python
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
@@ -445,8 +494,36 @@ if __name__ == "__main__":
 ```
 
 ## roslaunch
+>**A XML file that enable you to set up and launch multiple nodes at a time**
+```xml
+<launch>
+    <node pkg="package-name" name="name-at-runtime" type="node-executable"/>
+    ...
+    ...
+    ...
+    <node pkg="package-name" name="name-at-runtime" type="node-executable"/>
+</launch>
+```
+>**You can also set up params in the param server!**
+```xml
+<param name="param-name" value="parameter-value">
+```
+>For more detailed version, check this out! [roslaunch/XML](http://wiki.ros.org/roslaunch/XML)
 
+## action (optional)
+>**Action messages in ROS are suitable for situation where there is a intermediate stage between the request and response**
+```action
+#goal
 
+---
+
+#result
+
+---
+
+#feedback
+```
+For more detail, check out this post [Writing a Simple Action Server using the Execute Callback](http://wiki.ros.org/actionlib_tutorials/Tutorials/SimpleActionServer%28ExecuteCallbackMethod%29)
 
 ##### *References*
 1. [Creating a ROS msg and srv](http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv)

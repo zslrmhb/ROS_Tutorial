@@ -35,7 +35,7 @@ $ rosservice list
      /turtlesim/set_logger_level
 ```
 >**Now, we will take a look at "/clear"**
->>***"Empty" means the service have neither inputs or outputs**
+>>**"Empty" means the service have neither inputs or outputs**
 ```bash
 $ rosservice type /clear    # rosservice type [service-name]
     std_srvs/Empty 
@@ -45,7 +45,7 @@ $ rosservice type /clear    # rosservice type [service-name]
 ```bash
 $ rosservice call /clear    # rosservice call [service-name][args]
 ```
-> Insert the output image
+
 
 >**Next is an example about a service that take in arguments**
 >>**"|" is the pipe character which redirect the standard output of the command on the left as a standard input of the command on the right. Check out this post for more info. [Piping in Unix or Linux](https://www.geeksforgeeks.org/piping-in-unix-or-linux/)**
@@ -64,10 +64,10 @@ $ rosservice type /spawn | rossrv show
 ```bash
 $ rosservice call /spawn 2 2 0.2 ""
 ```
->**Input image here**
+
 
 ## ROS Parameters
->**Add description!**
+>**Parameters from the parameter server are global, and can be access by ANY nodes via the API provided ROS**
 
 ```bash
 rosparam set    [parameter-name][parameter-value]      # set parameter
@@ -90,7 +90,7 @@ $ rosparam set /turtlesim/background_b 0    # rosparam set [parameter-name][para
 ```bash
 $ rosservice call /clear
 ```
->**Insert picture here**
+
 
 >**What if we want to get a specific param value? Try this!**
 >**This will return the green portion of the background rgb**
@@ -114,6 +114,12 @@ $ rosparam get /turtlesim/background_r
 ```
 ##### Writing a rosparam
 **The following code and explanation is taken and modified from the this tutorial: [ros_21_tutorials](https://github.com/huchunxu/ros_21_tutorials/tree/master/docs/slides)**
+**In the workspace that you have created in Lesson 3, create the following package**
+```bash
+$ cd ~/[workspace-name]/src
+# catkin_create_pkg <package_name> [depend1] [depend2] [depend3]
+$ catkin_create_pkg <learning_parameter> roscpp rospy std_srvs
+```
 >**Let's write a config file for the parameter, this will be a YAML file saved in the "config" file that you create within your workspace**
 
 ```YAML
@@ -192,7 +198,23 @@ int main(int argc, char **argv)
     return 0;
 }
 ```
->**Add explanation**
+>**To compile the above code and run it, write the following in the CMakeLists of the package!**
+>>**This will generate a executable from the above source code and automatically link the necessary libraries for you!**
+```bash
+add_executable(parameter_config src/parameter_config.cpp)
+target_link_libraries(parameter_config${catkin_LIBRARIES})
+```
+>**To run the program, run the following command in terminal!**
+>>**Assuming your current working directory in the terminal is the package location**
+```bash
+$ cd ~/[workspace-name]
+$ catkin_make
+$ source devel/setup.bash
+$ roscore
+$ rosrun turtlesim turtlesim_node
+$ rosrun learning_parameter parameter_config
+```
+
 >**Python version, name this "parameter_config.py" (place it in the "scripts" folder that you need to create within your workspace)**
 ```Python
 #!/usr/bin/env python
@@ -259,8 +281,15 @@ def parameter_config():
 if __name__ == "__main__":
     parameter_config()
 ```
->**Add explanation**
-
+>**Way easier for python, try the following!**
+```bash
+$ cd ~/[workspace-name]
+$ catkin_make
+$ source devel/setup.bash
+$ roscore
+$ rosrun turtlesim turtlesim_node
+$ rosrun learning_parameter parameter_config
+```
 
 
 

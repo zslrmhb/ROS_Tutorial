@@ -62,6 +62,23 @@ int main(int argc, char** argv)
 ```
 >**For detailed explanation of the code, please visit [Writing a Simple Service and Client (C++)](http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28c%2B%2B%29), this is the basic format of a client**
 
+>**To compile the above code and run it, write the following in the CMakeLists of the package!**
+>>**This will generate a executable from the above source code and automatically link the necessary libraries for you!**
+```bash
+add_executable(turtle_spawn src/turtle_spawn.cpp)
+target_link_libraries(turtle_spawn ${catkin_LIBRARIES})
+```
+>**To run the program, run the following command in terminal!**
+>>**Assuming your current working directory in the terminal is the package location**
+```bash
+$ cd ~/[workspace-name]
+$ catkin_make
+$ source devel/setup.bash
+$ roscore
+$ rosrun turtlesim turtlesim_node
+$ rosrun beginner_tutorials turtle_spawn
+```
+
 >**Python version, name this "turtle_spawn.py**
 ```Python
 #!/usr/bin/env python
@@ -110,6 +127,17 @@ if __name__ == "__main__":
 
 ```
 >**For detailed explanation of the code, please visit [Writing a Simple Service and Client (Python)](http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28python%29)**
+
+>**To run the program, run the following command in terminal!**
+>>**Assuming your current working directory in the terminal is the package location**
+```bash
+$ cd ~/[workspace-name]
+$ catkin_make
+$ source devel/setup.bash
+$ roscore
+$ rosrun turtlesim turtlesim_node
+$ rosrun beginner_tutorials turtle_spawn
+```
 
 ## ROS Server
 >**ROS Server: A node that process request(s) from and send response(s) to the ROS Client**
@@ -213,6 +241,24 @@ int main(int argc, char **argv)
 ```
 >**For detailed explanation of the code, please visit [Writing a Simple Service and Client (C++)](http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28c%2B%2B%29), this is the basic format of a server**
 
+>**To compile the above code and run it, write the following in the CMakeLists of the package!**
+>>**This will generate a executable from the above source code and automatically link the necessary libraries for you!**
+```bash
+add_executable(turtle_command_server src/turtle_command_server.cpp)
+target_link_libraries(turtle_command_server ${catkin_LIBRARIES})
+```
+>**To run the program, run the following command in terminal!**
+>>**Assuming your current working directory in the terminal is the package location**
+```bash
+$ cd ~/[workspace-name]
+$ catkin_make
+$ source devel/setup.bash
+$ roscore
+$ rosrun turtlesim turtlesim_node
+$ rosrun beginner_tutorials turtle_command_server
+$ rosservice call /turtle_command "{}"
+```
+
 **Python version, name this "turtle_command_server.py"**
 ```python
 #!/usr/bin/env python
@@ -284,6 +330,17 @@ if __name__ == "__main__":
 ```
 >**For detailed explanation of the code, please visit [Writing a Simple Service and Client (Python)](http://wiki.ros.org/ROS/Tutorials/WritingServiceClient%28python%29)**
 
+>**To run the program, run the following command in terminal!**
+>>**Assuming your current working directory in the terminal is the package location**
+```bash
+$ cd ~/[workspace-name]
+$ catkin_make
+$ source devel/setup.bash
+$ roscore
+$ rosrun turtlesim turtlesim_node
+$ rosrun beginner_tutorials turtle_command_server
+$ rosservice call /turtle_command "{}"
+```
 
 
 
