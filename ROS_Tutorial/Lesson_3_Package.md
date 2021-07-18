@@ -52,6 +52,7 @@ workspace_folder/         -- WORKSPACE
     setup.sh
     ...
 ```
+>**To understand the difference between 'src' , 'build' ... folders, look at this: [Catkin Workspaces](https://wiki.ros.org/catkin/workspaces)**
 
 ## Creating a ROS Workspace
 **You should name the [workspace name]**
@@ -61,15 +62,20 @@ $ cd ~/[workspace-name]/
 $ catkin_make
 ```
 
-> add more
+> **Upon building the catkin workspace, you should have the 'devel' folder in which there are files with the suffix '.sh' (bash files).**
+>> **The command below will source the 'setup.bash', which means to execute the lines in this bash file, and setup the environment variables**
+>>>**Need more info? Check this:[What does source command actually do?](https://answers.ros.org/question/188309/what-does-source-command-actually-do/)** 
 ```bash
 $ source devel/setup.bash
 ```
->add more
+>**To make sure the setup script ran properly, use the follow command to get the package path!**
+>>**If it return your current directory, you are good to go!**
 ```bash
 $ echo $ROS_PACKAGE_PATH
 ```
+
 ## Creating a ROS Package
+>**The following commands will create a package, try it and your package name will be "beginner_tutorials"!**
 ```bash
 $ cd ~/[workspace-name]/src
 # catkin_create_pkg <package_name> [depend1] [depend2] [depend3]

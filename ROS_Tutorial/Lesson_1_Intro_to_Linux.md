@@ -62,9 +62,82 @@ Usage: sudo [command]
 ---
 
 ## Practices
-1) Open the terminal and create a folder called Helloworld
-2)
+**1) Open the terminal and create a folder called "test"**
 
+**2) How will you check if the "test" folder exist?**
+
+**3) change your directory to "test"**
+
+**4) check your current directory**
+
+**5) In "test", create a file called "Hello_World", and check if it is created**
+
+**6) make a new directory called "test2"**
+
+**7) move "Hello_World" to "test2"**
+
+**8) change to directory "test2" and change "Hello_World" file to "Hello"**
+
+**9) Copy the "Hello" file to the previous directory, and remove the "Hello" in the current directory**
+
+**10) Back to the previous directory and remove directory "test2"**
+
+**11) CHALLENGE: go to the previous directory and delete the directory "test" (WITH the file "Hello" in it). Then, echo the following to the screen "Finished!"**
+
+## Answer References
+1) first, press Ctrl + Alt + T
+```bash
+$ mkdir test
+```
+2) 
+```bash
+$ ls
+```
+3) 
+```bash
+$ cd test 
+```
+4) 
+```bash
+$ pwd
+/home/ucsd/test
+```
+5) 
+```bash
+$ touch Hello_World
+$ ls
+Hello_World
+```
+6)
+```bash
+$ mkdir test2
+```
+7)
+```bash
+$ mv Hello_World test2
+```
+8)
+```bash
+$ cd test2
+$ mv Hello_World Hello
+```
+9)
+```bash
+$ cp Hello ..
+$ rm Hello
+```
+10)
+```bash
+$ cd ..
+$ rmdir test2
+```
+11)
+```bash
+$ cd ..
+$ rm -r test    # This means to remove recursively 
+                # For situation when folder is not empty
+$ echo Finished!
+```
 ##### *References*
 1. [Common Linux Commands](https://www.dummies.com/computers/operating-systems/linux/common-linux-commands/)
 2. [35 Linux Basic Commands Every User Should Know](https://www.hostinger.com/tutorials/linux-commands)

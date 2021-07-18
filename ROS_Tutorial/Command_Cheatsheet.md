@@ -1,4 +1,22 @@
 # Command Cheetsheet
+>**Other cheatsheets that I found**
+- [ROS Cheat Sheet](https://mirror.umd.edu/roswiki/attachments/de/ROScheatsheet.pdf)
+- [ROS CHEAT SHEET MELODIC](https://www.generationrobots.com/media/ROS_Cheat_Sheet_Melodic.pdf)
+- [ROS CHEAT SHEET](https://kapeli.com/cheat_sheets/ROS.docset/Contents/Resources/Documents/index)
+- [Robotic Operating System - Cheat Sheet (ROS Melodic)](https://pk.sedenius.com/wp-content/uploads/2020/08/sedenius_ros_cheatsheet.pdf)
+
+## ROS Workspace
+
+## ROS Packages
+
+
+
+
+
+
+
+
+
 
 ## ROS Nodes
 >**Basic communication and execution units in ROS, can either publish or receive message(s) via a ROS topic**
@@ -47,3 +65,7 @@ rosparam dump   [file-name]                            # dump parameters to file
 rosparam delete [parameter-name]                       # delete parameter
 rosparam list                                          # list parameter names
 ```
+
+## Cmake
+
+## roslaunch

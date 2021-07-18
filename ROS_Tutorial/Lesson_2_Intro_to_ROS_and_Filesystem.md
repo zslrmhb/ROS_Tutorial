@@ -1,9 +1,42 @@
 
 # Lesson 2 - Intro to ROS & Filesystem
 
+## Helpful Resources
+>**Before starting this lesson, let me list out some resources that you will find helpful!**
+>>**It is extremely recommended to check out some of this resources if you want more in-depth knowledge!**
+
+- RoboMaster ROS Package
+  - [RoboRTS](https://robomaster.github.io/RoboRTS-Tutorial/#/en/dev_guide/pre_requisites)
+- Cmake 
+  - [An Introduction to Modern CMake](https://cliutils.gitlab.io/modern-cmake/)
+
+- ROS
+  - [ros wiki: ROS Tutorials](http://wiki.ros.org/ROS/Tutorials)
+  - [A Gentle Introduction to ROS](https://www.cse.sc.edu/~jokane/agitr/)
+  - [ROBOTIS e-Maunual](https://emanual.robotis.com/docs/en/platform/turtlebot3/learn/#learn)
+
+- Programming 
+**ROS uses Python 2.7, which is different from the more popular Python 3, be sure to check the version in the tutorial**
+  - [w3schools: C++](https://www.w3schools.com/cpp/cpp_getstarted.asp)
+  - [w3schools: Python](https://www.w3schools.com/python/default.asp)
+  - [菜鸟教程: C++](https://www.runoob.com/cplusplus/cpp-tutorial.html)
+  - [菜鸟教程: Python](https://www.runoob.com/python/python-tutorial.html)
+
+- Videos
+  - [ROS tutorial](https://youtu.be/ehtUb55Rmmg)
+  - [ROBOTIS tutorial](https://youtu.be/1tqYrWqrbC8)
+  - [古月·ROS入门21讲 ](https://www.bilibili.com/video/BV1zt411G7Vn?from=search&seid=4319717738496040484)
+  - [freeCodeCamp: Python tutorial](https://youtu.be/rfscVS0vtbw)
+  - [freeCodeCamp: C++ tutorial](https://youtu.be/vLnPwxZdW4Y)
+  - [Simplified CMake Tutorial](https://youtu.be/mKZ-i-UfGgQ)
+  - [How to CMake Good](https://youtu.be/_yFPO1ofyF0)
+
+
+
 ## ROS
 
 **ROS, or Robot Operating System, is a well-established software platform that  provides implementation for various tools and algorithms in robotics.**
+
 
 ## Common ROS Filesystem Commands
 > **Using Linux commands will be tedious and inefficient in navigating across many ROS packages. So, that is why we will learn about the following commands.**
@@ -22,12 +55,27 @@
  
 
 ## Practices
-1. 
-2.
-3.
-4.
-5.
 
+**1) moves to the "turtlesim" package directory**
+
+**2) type the command to find the location "turtlesim" package**
+
+**3) lists the "turtlesim" directory content**
+
+## Answer References
+
+1)
+```bash
+roscd turtlesim
+```
+2)
+```bash
+rospack find turtlesim
+```
+3)
+```bash
+rosls turtlesim
+```
 ---
 
 
