@@ -1,7 +1,8 @@
-# Lesson 7 Server & Client
-## ROS Client
+# Lesson 7 Server & Client :bellhop_bell:
+## ROS Client :raising_hand_man:
 >**ROS Client: A node that sends request(s) to and get response(s) from the ROS Server**
-**The following code and explanation is taken and modified from the this tutorial: [ros_21_tutorials](https://github.com/huchunxu/ros_21_tutorials/tree/master/docs/slides)**
+>>**The following code and explanation is taken and modified from the this tutorial: [ros_21_tutorials](https://github.com/huchunxu/ros_21_tutorials/tree/master/docs/slides)**
+
 **C++ version, name this "turtle_spawn.cpp"**
 ```cpp
 /***********************************************************************
@@ -139,9 +140,10 @@ $ rosrun turtlesim turtlesim_node
 $ rosrun beginner_tutorials turtle_spawn
 ```
 
-## ROS Server
+## ROS Server :facepalm:
 >**ROS Server: A node that process request(s) from and send response(s) to the ROS Client**
-**The following code and explanation is taken and modified from the this tutorial: [ros_21_tutorials](https://github.com/huchunxu/ros_21_tutorials/tree/master/docs/slides)**
+>> **The following code and explanation is taken and modified from the this tutorial: [ros_21_tutorials](https://github.com/huchunxu/ros_21_tutorials/tree/master/docs/slides)**
+
 **C++ version, name this "turtle_command_server.cpp"**
 ```cpp
 /***********************************************************************

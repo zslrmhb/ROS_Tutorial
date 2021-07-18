@@ -1,8 +1,10 @@
-# Lesson 8 srv, msg, and roslaunch
+# Lesson 8 srv, msg, and roslaunch :joystick:
 ## The codes in this tutorial are optional for you to try, since they are similar to the last lessons. But still worth to read it!
 **The following code and explanation is taken and modified from the this tutorial: [ros_21_tutorials](https://github.com/huchunxu/ros_21_tutorials/tree/master/docs/slides)**
-## msg
+## msg :page_facing_up:
 > **Message file will contain the data exchanged between the nodes**
+
+**Person.msg, create in the msg folder that you will create for the package**
 
 ```msg
 string name
@@ -13,14 +15,15 @@ uint8 unknown = 0
 uint8 male    = 1
 uint8 female  = 2
 ```
-> **Find the following in the package.xml file (assuming you have created new package in your workspace or you are using a pre-created package) and uncomment it, if not, add this lines**
->>**These are the package dependency when your custom message files are involved**
+> **Find the following in the package.xml file (assuming you have created new package in your workspace or you are using a pre-existing package) and uncomment it. If not found, add these lines**
+>>**These are the package dependencies when your custom message files are involved**
 ```bash
   <build_depend>message_generation</build_depend>
   <exec_depend>message_runtime</exec_depend>
 ```
 
 > **Now, go to the CMakeList.txt in your current package and add the following if they does not exist**
+
 - find_package(... message_generation)
 - add_message_files(FILES Person.msg)
 - generate_messages(DEPENDENCIES std_msgs)
@@ -33,7 +36,9 @@ $ cd ../..
 $ catkin_make
 $ cd -
 ```
-> **Now, the files distribution for 'Person.msg' should be as follows**
+> **As a result from the previous steps, the files distribution for 'Person.msg' should be as follows**
+
+**package-name will be whatever you name your package**
 >> **C++ header file : ~/catkin_ws/devel/include/[package-name]/**
 >> **Python script: ~/catkin_ws/devel/lib/python2.7/dist-packages/[package-name]/msg**
 
@@ -203,9 +208,9 @@ def velocity_publisher():
 		# 初始化learning_topic::Person类型的消息
         # Initialize message of this type: learning_topic::Person
     	person_msg = Person()
-    	person_msg.name = "Tom"
-    	person_msg.age  = 18
-    	person_msg.sex  = Person.male
+    	person_msg.name = "Tom";
+    	person_msg.age  = 18;
+    	person_msg.sex  = Person.male;
 
 		# 发布消息
         # Publish message
@@ -267,13 +272,14 @@ if __name__ == '__main__':
 ```
 >**So far in the lesson, you should know how to compile (C++) and execute the above code, so I will not reiterate the steps**
 
-## srv
+## srv :page_with_curl:
 >**Service file contains the type of request and response data between the client and the server**
 ```
 # request
 ---
 # response
 ```
+> **Same drills, this "Person.srv" file will be in the srv folder of your package**
 ```srv
 string name
 uint8  age
@@ -493,7 +499,7 @@ if __name__ == "__main__":
     person_server()
 ```
 
-## roslaunch
+## roslaunch :rocket:
 >**A XML file that enable you to set up and launch multiple nodes at a time**
 ```xml
 <launch>
@@ -508,9 +514,9 @@ if __name__ == "__main__":
 ```xml
 <param name="param-name" value="parameter-value">
 ```
->For more detailed version, check this out! [roslaunch/XML](http://wiki.ros.org/roslaunch/XML)
+> **For more detailed version, check this out! [roslaunch/XML](http://wiki.ros.org/roslaunch/XML)**
 
-## action (optional)
+## action (optional) :golf:
 >**Action messages in ROS are suitable for situation where there is a intermediate stage between the request and response**
 ```action
 #goal
@@ -523,7 +529,10 @@ if __name__ == "__main__":
 
 #feedback
 ```
-For more detail, check out this post [Writing a Simple Action Server using the Execute Callback](http://wiki.ros.org/actionlib_tutorials/Tutorials/SimpleActionServer%28ExecuteCallbackMethod%29)
+**For more detail, check out this post [Writing a Simple Action Server using the Execute Callback](http://wiki.ros.org/actionlib_tutorials/Tutorials/SimpleActionServer%28ExecuteCallbackMethod%29)**
+
+
+# :confetti_ball: :tada: Congratulations! You finished the entire lesson. Now, if you would like to learn more about ROS, check the resources in Lesson 2! Good Luck!
 
 ##### *References*
 1. [Creating a ROS msg and srv](http://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv)

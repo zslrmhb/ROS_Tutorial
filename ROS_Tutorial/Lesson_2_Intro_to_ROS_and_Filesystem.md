@@ -1,7 +1,7 @@
 
-# Lesson 2 - Intro to ROS & Filesystem
+# Lesson 2 - Intro to ROS & Filesystem :card_file_box:
 
-## Helpful Resources
+## Helpful Resources :moneybag:
 >**Before starting your exploration in ROS, let me list out some resources that you will find really helpful!**
 >>**It is extremely recommended to check out some of this resources if you want more in-depth knowledge!**
 
@@ -33,12 +33,12 @@
 
 
 
-## ROS
+## ROS :robot:
 
 **ROS, or Robot Operating System, is a well-established software platform that  provides implementation for various tools and algorithms in robotics.**
 
 
-## Common ROS Filesystem Commands
+## Common ROS Filesystem Commands :keyboard:
 > **Using Linux commands will be tedious and inefficient in navigating across many ROS packages. So, that is why we will learn about the following commands.**
 
 **`roscd [package name]`**
@@ -54,7 +54,7 @@
  *Example: rosls turtlesim  // lists the contents in the turtlesim package directory*
  
 
-## Practices
+## Practices :zzz:
 
 **1) moves to the "turtlesim" package directory**
 
@@ -62,7 +62,7 @@
 
 **3) lists the "turtlesim" directory content**
 
-## Answer References
+## Answer References :100:
 
 1)
 ```bash
@@ -73,13 +73,11 @@ ucsd@ucsd-virt-ubt18:/opt/ros/melodic/share/turtlesim$
 ```bash
 rospack find turtlesim
 /opt/ros/melodic/share/turtlesim
-
 ```
 3)
 ```bash
 rosls turtlesim
 cmake  images  msg  package.xml  srv
-
 ```
 ---
 

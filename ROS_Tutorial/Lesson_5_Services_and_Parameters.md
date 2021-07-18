@@ -1,12 +1,12 @@
-# Lesson 5 Services & Parameters
+# Lesson 5 Services & Parameters :briefcase:
 >**Before starting this lesson, make sure to have turtlesim running. If not, run the following three commands in separate terminals**
 ```bash
 $ roscore
 $ rosrun turtlesim turtlesim_node
 $ rosrun turtlesim turtle_teleop_key
 ```
-## ROS Services
->**ROS Services: Different from rostopic, rosservice provide another way of communication between nodes that it allows a "request" and "response". An analogy is that the mechanism of rostopic will be the asynchronous lecture that your professor publish (publisher) and you are receiving the information from the lecture (subscriber). rosservice, on the other hand, will be in-person synchronous learning where you can get direct feedbacks from the professor**
+## ROS Services :cocktail:
+>**ROS Services: Different from rostopic, rosservice provide another way of communication between nodes that it allows a "request" and "response". An analogy is that the mechanism of rostopic will be the asynchronous lecture that your professor publishes (publisher) and you  receive the information from the lecture (subscriber)(unidirectional). rosservice, on the other hand, will be in-person synchronous learning where you can get direct feedbacks from the professor**
 
 ```bash
 rosservice list                      # print information about active services
@@ -17,7 +17,7 @@ rosservice info [service-name]       # print information about service
 rosservice uri  [service-name]       # print service ROSRPC uri
 ```
 >**Let us begin our journey by the following command!**
->>**We see that turtlesim has provide us with 9 services (exclude the one that start with '/rosout' and 'teleop_turtle'**
+>>**We see that turtlesim has provide us with 9 services (exclude the one that start with '/rosout' and 'teleop_turtle')**
 ```bash
 $ rosservice list
      /clear
@@ -38,10 +38,11 @@ $ rosservice list
 >>**"Empty" means the service have neither inputs or outputs**
 ```bash
 $ rosservice type /clear    # rosservice type [service-name]
-    std_srvs/Empty 
+std_srvs/Empty
 ```
 
 >**Let's call this service and see what will happen!**
+>>**It might seem that nothing has happen, but it refreshed the turtlesim screen :joy:**
 ```bash
 $ rosservice call /clear    # rosservice call [service-name][args]
 ```
@@ -61,13 +62,15 @@ $ rosservice type /spawn | rossrv show
 ```
 >**Let us call the service with the required arguments!**
 >>**The 4th argument is optional (name for the new turtle) as the default output will be "turtle + generation number"**
+>>>**A newborn turtle! :turtle:**
 ```bash
 $ rosservice call /spawn 2 2 0.2 ""
+name: "turtle2"
 ```
 
 
-## ROS Parameters
->**Parameters from the parameter server are global, and can be access by ANY nodes via the API provided ROS**
+## ROS Parameters :slightly_smiling_face:
+>**Parameters from the parameter server are global :globe_with_meridians:, and can be access by ANY nodes via the API provided ROS**
 
 ```bash
 rosparam set    [parameter-name][parameter-value]      # set parameter
@@ -80,9 +83,15 @@ rosparam list                                          # list parameter names
 >**Let's check out the current parameters in the param server!**
 ```bash
 $ rosparam list
-    add output here!
+/rosdistro
+/roslaunch/uris/host_localhost__34079
+/rosversion
+/run_id
+/turtlesim/background_b
+/turtlesim/background_g
+/turtlesim/background_r
 ```
->**How about changing the params in "/turtlesim/background_b"!**
+>**How about changing the params in "/turtlesim/background_b"! :blue_square:**
 ```bash
 $ rosparam set /turtlesim/background_b 0    # rosparam set [parameter-name][parameter-value]
 ```
@@ -91,9 +100,8 @@ $ rosparam set /turtlesim/background_b 0    # rosparam set [parameter-name][para
 $ rosservice call /clear
 ```
 
-
 >**What if we want to get a specific param value? Try this!**
->**This will return the green portion of the background rgb**
+>**This will return the green portion of the background rgb :green_square:**
 ```bash
 $ rosparam get /turtlesim/background_g  # rosparam get [parameter-name]  
 ```
@@ -101,8 +109,18 @@ $ rosparam get /turtlesim/background_g  # rosparam get [parameter-name]
 >**To get the entire content from teh parameter sever, do this!**
 ```bash
 $ rosparam get /
+rosdistro: 'melodic
+
+  '
+roslaunch:
+  uris: {host_localhost__34079: 'http://localhost:34079/'}
+rosversion: '1.14.11
+
+  '
+run_id: 8ebaf634-e810-11eb-b919-000c2978175f
+turtlesim: {background_b: 0, background_g: 0, background_r: 69}
 ```
-#### Optional (THE PART BELOW IS OPTIONAL)
+#### Optional (THE PART BELOW IS OPTIONAL) :warning:
 >**To store the current parameter to a file, we can do this!**
 ```bash
 $ rosparam dump params.yaml # rosparam dump [file-name] 
@@ -187,7 +205,7 @@ int main(int argc, char **argv)
 	ROS_INFO("Re-get Backgroud Color[%d, %d, %d]", red, green, blue);
 
 	// 调用服务，刷新背景颜色
-    // Call the "screen refresh" service
+    // Call the "screen refresh" service ("/clear")
 	ros::service::waitForService("/clear");
 	ros::ServiceClient clear_background = node.serviceClient<std_srvs::Empty>("/clear");
 	std_srvs::Empty srv;

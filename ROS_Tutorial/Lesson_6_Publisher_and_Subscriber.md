@@ -1,13 +1,14 @@
-# Lesson 6 Publisher & Subscriber
+# Lesson 6 Publisher & Subscriber :vibration_mode:
 >**In this lesson, we going to revisit the package that you have created in Lesson 3, simply type the following command to the terminal!**
 >>**The command will direct you to the source folder of the package, and this is the place for the source files of publisher and subscriber and possibly others!**
 ```bash
 cd ~/[workspace-name]/src/[package-name]/src
 # package-name is "beginner_tutorials"
 ```
-## ROS Publisher
+## ROS Publisher :outbox_tray:
 >**ROS Publisher: A node that publish message to the subscriber through a rostopic**
-**The following code and explanation is taken and modified from the this tutorial: [ros_21_tutorials](https://github.com/huchunxu/ros_21_tutorials/tree/master/docs/slides)**
+>>**The following code and explanation is taken and modified from the this tutorial: [ros_21_tutorials](https://github.com/huchunxu/ros_21_tutorials/tree/master/docs/slides)**
+
 **C++ Version, name it "velocity_publisher.cpp"**
 
 ```cpp
@@ -165,9 +166,10 @@ $ rosrun turtlesim turtlesim_node
 $ rosrun beginner_tutorials velocity_publisher
 ```
 
-## ROS Subscriber
+## ROS Subscriber :inbox_tray:
 >**ROS Subscriber: A node that receive/subscribe message from the publisher through a rostopic**
-**The following code and explanation is taken and modified from the this tutorial: [ros_21_tutorials](https://github.com/huchunxu/ros_21_tutorials/tree/master/docs/slides)**
+>> **The following code and explanation is taken and modified from the this tutorial: [ros_21_tutorials](https://github.com/huchunxu/ros_21_tutorials/tree/master/docs/slides)**
+
 **C++ Version, name it "pose_subscriber.cpp"**
 
 ```cpp

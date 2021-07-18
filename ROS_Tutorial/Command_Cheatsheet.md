@@ -1,4 +1,4 @@
-# Command Cheetsheet
+# Command Cheetsheet :construction: (NOT YET COMPLETE)
 >**Other cheatsheets that I found**
 - [ROS Cheat Sheet](https://mirror.umd.edu/roswiki/attachments/de/ROScheatsheet.pdf)
 - [ROS CHEAT SHEET MELODIC](https://www.generationrobots.com/media/ROS_Cheat_Sheet_Melodic.pdf)

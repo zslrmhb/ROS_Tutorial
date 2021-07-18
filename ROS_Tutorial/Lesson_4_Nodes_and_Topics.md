@@ -1,4 +1,4 @@
-# Lesson 4 - Nodes & Topics
+# Lesson 4 - Nodes & Topics :email:
 > **Starting from this lesson, we will be focusing on using a package called turtlesim, a wonderful tool for learning ROS**
 ---
 
@@ -18,7 +18,7 @@ $ rosrun turtlesim turtlesim_node
 $ rosrun turtlesim turtle_teleop_key
 ```
 
-## ROS Nodes
+## ROS Nodes :seedling:
 >**ROS Nodes: Basic communication and execution units in ROS, can either publish or receive message(s) via a ROS topic**
 
 ```bash 
@@ -88,10 +88,7 @@ killed
 ```
 >**Don't forget to practice other commands!**
 
-
-
-
-## ROS Topics
+## ROS Topics :leaves:
 >**ROS Topics: The "lines" that connect the communication between nodes (publishing and subscribing)**
 
 ```bash
@@ -171,7 +168,7 @@ $ rostopic list -h
        -p                    list only publishers
        -s                    list only subscribers
 ```
-### ROS Messages
+### ROS Messages :envelope:
 > **ROS Messages: The data that are send between ROS Nodes through the ROS Topics**
 >>**Publisher -> same type of message (topic type depends on this) -> Subscriber**
 

@@ -1,10 +1,10 @@
-# Lesson 1 - Intro to Linux
+# Lesson 1 - Intro to Linux :desktop_computer:
 
 
-## *What is Linux*
+## *What is Linux* :penguin:
 >**This is a family of operating system based on a open-source operating system kernal. ROS was based on this system, so let's first get familiarize with it!**
 
-## *Common Linux Commands*
+## *Common Linux Commands* :keyboard:
 
 
 **`Ctrl + Alt + T`**
@@ -61,7 +61,7 @@ Usage: echo [string arguments]
 Usage: sudo [command]
 ---
 
-## Practices
+## Practices :zzz:
 **1) Open the terminal and create a folder called "test"**
 
 **2) How will you check if the "test" folder exist?**
@@ -84,7 +84,7 @@ Usage: sudo [command]
 
 **11) CHALLENGE: move to the previous directory and delete the directory "test" (WITH the file "Hello" in "test"). Then, echo the following:  "Finished!"**
 
-## Answer References
+## Answer References :100:
 1) first, press Ctrl + Alt + T
 ```bash
 $ mkdir test

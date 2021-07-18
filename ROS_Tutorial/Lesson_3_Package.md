@@ -1,16 +1,16 @@
-# Lesson 3 - Package
+# Lesson 3 - Package :package:
 
-## Catkin vs. Rosbuild
+## Catkin vs. Rosbuild :construction_worker:
 >**Rosbuild was an outdated buildsystem, just use Catkin!**
 >>**See this post if you are curious. [catkin vs rosbuild system?](https://answers.ros.org/question/125901/catkin-vs-rosbuild-system/)** 
 
 
-## Catkin Package Requirements
+## Catkin Package Requirements :white_check_mark:
 - **package.xml (meta information about the package)**
 - **CMakeLists.txt**
 - **Independent folder**
 
-## Catkin Workspaces
+## Catkin Workspaces :office:
 >**This is the recommended method of organizing catkin packages, other methods are available upon Google.**
 **Below is an example workspace from ros wiki**
 
@@ -54,7 +54,7 @@ workspace_folder/         -- WORKSPACE
 ```
 >**To understand the difference between 'src' , 'build' ... folders, look at this: [Catkin Workspaces](https://wiki.ros.org/catkin/workspaces)**
 
-## Creating a ROS Workspace
+## Creating a ROS Workspace :building_construction:
 **You should name the [workspace-name]**
 ```bash
 $ mkdir -p ~/[workspace-name]/src 
@@ -74,14 +74,14 @@ $ source devel/setup.bash
 $ echo $ROS_PACKAGE_PATH
 ```
 
-## Creating a ROS Package
+## Creating a ROS Package :building_construction:
 >**The following commands will create a package, try it and your package name will be "beginner_tutorials"!**
 ```bash
 $ cd ~/[workspace-name]/src
 # catkin_create_pkg <package_name> [depend1] [depend2] [depend3]
 $ catkin_create_pkg beginner_tutorials std_msgs geometry_msgs turtlesim rospy roscpp
 ```
-## Building a ROS Package
+## Building a ROS Package :building_construction:
 >**This package will be used later in Lesson 6!**
 >>**ROS package naming convention: start with a uncapitalized letter, then followed by either uncapitalize letter, number or underscore** 
 ```bash
