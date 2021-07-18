@@ -2,7 +2,7 @@
 
 
 ## *What is Linux*
-
+>**This is a family of operating system based on a open-source operating system kernal. ROS was based on this system, so let's first get familiarize with it!**
 
 ## *Common Linux Commands*
 

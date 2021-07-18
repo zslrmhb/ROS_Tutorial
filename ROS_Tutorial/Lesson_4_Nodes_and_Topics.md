@@ -13,6 +13,11 @@ $ rosrun turtlesim turtlesim_node
 ```
 > add image of turtlesim here
 
+>**Let's also enable keyboard control!**
+```bash
+$ rosrun turtlesim turtle_teleop_key
+```
+
 ## ROS Nodes
 >**ROS Nodes: Basic communication and execution units in ROS, can either publish or receive message(s) via a ROS topic**
 

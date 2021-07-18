@@ -70,9 +70,11 @@ $ echo $ROS_PACKAGE_PATH
 ```bash
 $ cd ~/[workspace-name]/src
 # catkin_create_pkg <package_name> [depend1] [depend2] [depend3]
-$ catkin_create_pkg beginner_tutorials std_msgs rospy roscpp
+$ catkin_create_pkg beginner_tutorials std_msgs geometry_msgs turtlesim rospy roscpp
 ```
 ## Building a ROS Package
+>**This package will be used later in Lesson 6!**
+>>**ROS package naming convention: start with a uncapitalized letter, then followed by either uncapitalize letter, number or underscore** 
 ```bash
 $ cd ~/[workspace-name]
 $ catkin_make
