@@ -1,6 +1,8 @@
 # Lesson 8 srv, msg, and roslaunch :joystick:
 ## The codes in this tutorial are optional for you to try, since they are similar to the last lessons. But still worth to read it!
-**The following code and explanation is taken and modified from the this tutorial: [ros_21_tutorials](https://github.com/huchunxu/ros_21_tutorials/tree/master/docs/slides)**
+### **The following code and explanation is taken and modified from the this tutorial: [ros_21_tutorials](https://github.com/huchunxu/ros_21_tutorials/tree/master/docs/slides)**
+#### **:warning: C++ "include" : change " learning_topic" or "learning_service" to the package you are using**
+#### **:warning: Python "import" : change " learning_topic" or "learning service" to the package you are using**
 ## msg :page_facing_up:
 > **Message file will contain the data exchanged between the nodes**
 
