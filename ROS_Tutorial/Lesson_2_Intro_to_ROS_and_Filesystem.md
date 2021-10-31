@@ -16,7 +16,7 @@
   - [ROBOTIS e-Maunual](https://emanual.robotis.com/docs/en/platform/turtlebot3/learn/#learn)
 
 - Programming 
-**ROS uses Python 2.7, which is different from the more popular Python 3, be sure to check the version in the tutorial**
+**ROS uses Python 2.7, which is different from the more popular Python 3 (will be in ROS 2), be sure to check the version in the tutorial**
   - [w3schools: C++](https://www.w3schools.com/cpp/cpp_getstarted.asp)
   - [w3schools: Python](https://www.w3schools.com/python/default.asp)
   - [菜鸟教程: C++](https://www.runoob.com/cplusplus/cpp-tutorial.html)
