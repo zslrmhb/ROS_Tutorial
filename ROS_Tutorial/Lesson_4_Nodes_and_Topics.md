@@ -107,8 +107,8 @@ rostopic type  [topic-name]   # print topic type
 >>>**For detail info of "apt-get" and relevant commands, check out this post**
 >>>[Using apt-get Commands In Linux](https://itsfoss.com/apt-get-linux-guide/)
 ```bash
-$ sudo apt-get install ros-<melodic>-rqt
-$ sudo apt-get install ros-<melodic>-rqt-common-plugins
+$ sudo apt-get install ros-melodic-rqt
+$ sudo apt-get install ros-melodic-rqt-common-plugins
 ```
 >**Then, we run the follow commands**
 >>**You will see the visualization of the relationship between nodes. In this case, "/teleop_turtle" and "/turtlesim" communicate through the topic "/turtle1/command_velocity**
